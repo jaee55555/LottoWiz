@@ -7,13 +7,18 @@
 	<meta charset="UTF-8">
 	<title>내 목록 보기</title>
 	<style type="text/css">
-		td {
+		table {
+			border: 1px solid;
+			border-collapse: collapse;
+		}
+		th, td {
 			text-align: center;
+			border: 1px solid;
 		}
 	</style>
 </head>
 <body>
-	<h3>LottoNums목록</h3>
+	<h3>내 목록 보기</h3>
 	<c:if test="${ !empty list }">
 	  <table>
 	    <tr>
@@ -44,7 +49,9 @@
       등록된 숫자 조합이 없습니다.
    </c:if>
   <br>
-  <a href="form">로또번호 생성하기</a>
+  <button type="button" onclick="location.href='list2024'">2024년 당첨목록 보기</button>
+  <button type="button" onclick="location.href='form'">
+  로또번호 생성하기</button>
 
 </body>
 </html>

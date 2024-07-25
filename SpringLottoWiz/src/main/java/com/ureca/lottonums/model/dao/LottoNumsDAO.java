@@ -28,6 +28,8 @@ public interface LottoNumsDAO {
 	
 	//@Select("select no, num1, num2, num3, num4, num5, num6 from lottonums order by no")
 	public List<LottoNums> selectAll()throws SQLException;//모든 Person 조회
+	
+	
 
 
 }

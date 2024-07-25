@@ -18,7 +18,7 @@ import com.ureca.lottonums.model.service.LottoNumsService;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
-@RequestMapping("/lottonums")
+@RequestMapping("/lottowiz")
 public class LottoNumsController {
 	
 	@Autowired
@@ -94,6 +94,7 @@ public class LottoNumsController {
 		}
 		return "redirect:list";//삭제 결과를 list페이지로 확인
 	}
+	
 
 
 }

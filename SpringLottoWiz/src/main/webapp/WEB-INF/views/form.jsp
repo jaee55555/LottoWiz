@@ -10,6 +10,8 @@
         table {
             width: 300px;
             border-collapse: collapse; 
+            border: 1px solid;
+            
         }
         
         th, td {
@@ -88,25 +90,25 @@
 </head>
 <body>
     <div>
-        <h3>번호를 고르세요</h3>
+        <h3>최대 6개의 번호를 고르세요</h3>
         <div id="checkboxForm"></div>
         <button onclick="makeNumList()">번호 생성하기</button>
     </div>
      
     <h3>번호 구성</h3>
     <form method="post">
-        <input type="text" class="inp" id="num1" name="num1" value="">
-        <input type="text" class="inp" id="num2" name="num2" value="">
-        <input type="text" class="inp" id="num3" name="num3" value="">
-        <input type="text" class="inp" id="num4" name="num4" value="">
-        <input type="text" class="inp" id="num5" name="num5" value="">
-        <input type="text" class="inp" id="num6" name="num6" value="">
+        <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num1" name="num1" value="">
+        <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num2" name="num2" value="">
+        <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num3" name="num3" value="">
+        <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num4" name="num4" value="">
+        <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num5" name="num5" value="">
+        <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num6" name="num6" value="">
         
         <button>저장하기</button>
     </form>
 
-    <br><br>
-    <a href="list_2024">2024년 당첨목록 보기</a>
-    <a href="list">내 목록 보기</a>
+    <br>
+    <button type="button" onclick="location.href='list2024'">2024년 당첨목록 보기</button>
+    <button type="button" onclick="location.href='list'">내 목록 보기</button>
 </body>
 </html>
