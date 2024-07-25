@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ureca.lottonums.model.dao.LottoNumsDAO">
+<insert id="insert" parameterType="LottoNums">
+     INSERT INTO lottonums (num1, num2, num3, num4, num5, num6)
+	SELECT #{num1}, #{num2}, #{num3}, #{num4}, #{num5}, #{num6}
+	WHERE NOT EXISTS (
+	    SELECT 1 FROM lottonums 
+	    WHERE num1 = #{num1} AND 
+	          num2 = #{num2} AND 
+	          num3 = #{num3} AND 
+	          num4 = #{num4} AND 
+	          num5 = #{num5} AND 
+	          num6 = #{num6}
+	) AND NOT EXISTS (
+	    SELECT 1 FROM lotto_results_2024 
+	    WHERE drwtNo1 = #{num1} AND 
+	          drwtNo2 = #{num2} AND 
+	          drwtNo3 = #{num3} AND 
+	          drwtNo4 = #{num4} AND 
+	          drwtNo5 = #{num5} AND 
+	          drwtNo6 = #{num6}
+	)
+
+  </insert>
+  
+  <update id="update" parameterType="lottonums">
+	UPDATE lottonums
+	SET num1 = #{num1}, num2 = #{num2}, num3 = #{num3}, num4 = #{num4}, num5 = #{num5}, num6 = #{num6}
+	WHERE no = #{no}
+	AND NOT EXISTS (
+	    SELECT 1 FROM (
+	        SELECT * FROM lottonums
+	        WHERE num1 = #{num1} 
+	        AND num2 = #{num2} 
+	        AND num3 = #{num3} 
+	        AND num4 = #{num4} 
+	        AND num5 = #{num5} 
+	        AND num6 = #{num6} 
+	        AND no != #{no}
+	    ) AS temp
+	)
+	AND NOT EXISTS (
+	    SELECT 1 FROM lotto_results_2024
+	    WHERE drwtNo1 = #{num1} 
+	    AND drwtNo2 = #{num2} 
+	    AND drwtNo3 = #{num3} 
+	    AND drwtNo4 = #{num4} 
+	    AND drwtNo5 = #{num5} 
+	    AND drwtNo6 = #{num6}
+		)
+  </update>
+  
+  <delete id="delete" parameterType="int">
+     delete from lottonums where no=#{no}
+  </delete>
+  
+  <select id="select" parameterType="int" 
+          resultType="LottoNums">
+     select no,num1,num2,num3,num4,num5,num6 from lottonums where no=#{no}
+  </select>
+  
+  <select id="selectAll" resultType="LottoNums">
+     select no,num1,num2,num3,num4,num5,num6 from lottonums order by no 
+  </select>
+</mapper>
