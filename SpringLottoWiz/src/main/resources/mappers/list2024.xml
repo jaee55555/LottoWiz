@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ureca.list2024.model.dao.List2024DAO">
+  <select id="select" parameterType="int" 
+          resultType="List2024">
+     select drwNo,drwNoDate,drwtNo1,drwtNo2,drwtNo3,drwtNo4,drwtNo5,drwtNo6, bnusNo from lotto_results_2024 where drwNo=#{drwNo}
+  </select>
+  
+  <select id="selectAll" resultType="List2024">
+     select drwNo,drwNoDate,drwtNo1,drwtNo2,drwtNo3,drwtNo4,drwtNo5,drwtNo6, bnusNo from lotto_results_2024 order by drwNo 
+  </select>
+</mapper>
