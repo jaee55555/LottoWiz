@@ -9,7 +9,6 @@ DROP TABLE IF EXISTS `lotto_results_2024`;
 CREATE TABLE `lotto_results_2024` (
 `drwNo` int primary key,
 `drwNoDate` date not null,
-`numLine` varchar(13) not null,
 `drwtNo1` int not null,
 `drwtNo2` int not null,
 `drwtNo3` int not null,
@@ -23,5 +22,5 @@ select drwNo as "회차", drwNoDate as "추첨날짜", drwtNo1 as "1번",drwtNo2
 	   drwtNo4 as "4번",drwtNo5 as "5번",drwtNo6 as "6번", bnusNo as "보너스 번호" 
 from lotto_results_2024;
 DELETE FROM `lotto_results_2024`;
-
+rollback;
 -- describe lotto_results_2024;

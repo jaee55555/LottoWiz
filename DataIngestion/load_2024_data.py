@@ -31,9 +31,9 @@ def put_data(start, end, basic_url, curr):
             drwt_no5 = int(data["drwtNo5"]) #당첨 번호 5
             drwt_no6 = int(data["drwtNo6"]) #당첨 번호 6
             bnun_no = int(data["bnusNo"]) #보너스 번호
-            str_num = str(drwt_no1)+str(drwt_no2)+str(drwt_no3)+str(drwt_no4)+str(drwt_no5)+str(drwt_no6)
+
             str_insert = f"INSERT INTO lotto_results_2024 " \
-                         f"VALUES({drwno},'{drwno_date}', {str_num}, " \
+                         f"VALUES({drwno},'{drwno_date}', " \
                          f"{drwt_no1},{drwt_no2},{drwt_no3}," \
                          f"{drwt_no4}, {drwt_no5}, {drwt_no6}, {bnun_no})"
             curr.execute(str_insert)
@@ -41,7 +41,7 @@ def put_data(start, end, basic_url, curr):
 
 #N = start
 #M = end
-N, M = 1101, 1129
+N, M = 1101, 1130
 
 basic_lotto_api_url = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo="
 
