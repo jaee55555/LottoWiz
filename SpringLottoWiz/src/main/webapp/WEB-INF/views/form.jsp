@@ -52,7 +52,7 @@
             appearance: none;
             width: 20px;
             height: 20px;
-            border: 2px solid #275efe;
+            border: 2px solid #28a745;
             border-radius: 4px;
             position: relative;
             cursor: pointer;
@@ -61,7 +61,7 @@
 
         .checkbox-wrapper input[type="checkbox"]:checked {
             background-color: #275efe;
-            border-color: #275efe;
+            border-color: #28a745;
         }
 
         .checkbox-wrapper input[type="checkbox"]:checked::before {
@@ -85,8 +85,25 @@
             --duration: 0.44s;
         }
 
+        .green-button {
+            background-color: #28a745; 
+            color: var(--text);
+            font-size: var(--font-size);
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: transform var(--duration), box-shadow var(--duration);
+        }
+
+        .green-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 8px -1px rgba(39, 94, 254, 0.32);
+        }
+
         button {
-            background-color: var(--background);
+            background-color: var(--background); /* 기본 파란색 */
             color: var(--text);
             font-size: var(--font-size);
             border: none;
@@ -192,7 +209,7 @@
         <h3>최대 6개의 번호를 고르세요</h3>
         <div id="checkboxForm"></div>
         <div class="center">
-            <button onclick="makeNumList()">번호 생성하기</button>
+            <button class="green-button" onclick="makeNumList()">번호 생성하기</button>
         </div>
     </div>
      
@@ -205,7 +222,7 @@
         <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num5" name="num5" value="">
         <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num6" name="num6" value="">
         
-        <button>저장하기</button>
+        <button class="green-button">저장하기</button>
     </form>
 
     <br>

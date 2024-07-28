@@ -6,8 +6,27 @@
 <meta charset="UTF-8">
 <title>LottoNums정보수정</title>
    <script type="text/javascript">
-       function remove(){
-    	   location.href='delete?no=${lottonums.no}';
+       function validateAndSubmit() {
+           var num1 = document.getElementById('num1').value;
+           var num2 = document.getElementById('num2').value;
+           var num3 = document.getElementById('num3').value;
+           var num4 = document.getElementById('num4').value;
+           var num5 = document.getElementById('num5').value;
+           var num6 = document.getElementById('num6').value;
+
+           var numbers = [num1, num2, num3, num4, num5, num6];
+           var uniqueNumbers = new Set(numbers);
+
+           if (uniqueNumbers.size !== numbers.length) {
+               alert('각 숫자들은 중복되면 안됩니다.');
+               return false;
+           }
+
+           return true;
+       }
+
+       function remove() {
+           location.href='delete?no=${lottonums.no}';
        }
    </script>
    
@@ -61,6 +80,23 @@
 	        box-shadow: 0 2px 8px -1px rgba(39, 94, 254, 0.32);
 	    }
 
+        .green-button {
+            background-color: #28a745; /* 녹색 */
+            color: var(--text);
+            font-size: var(--font-size);
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: transform var(--duration), box-shadow var(--duration);
+        }
+
+        .green-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 8px -1px rgba(39, 94, 254, 0.32);
+        }
+
         .button-container {
             display: flex;
             justify-content: center;
@@ -80,8 +116,8 @@
   <img src="../img/lotto645.jpg" alt="Lotto 6/45" width=80%>
   <h3>LottoNums정보수정</h3>
   <hr>
-  <form method="post">
-  <input type="hidden" name="no" value="${lottonums.no }">
+  <form method="post" onsubmit="return validateAndSubmit();">
+    <input type="hidden" name="no" value="${lottonums.no }">
     <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num1" name="num1" value="${lottonums.num1}">
     <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num2" name="num2" value="${lottonums.num2}">
     <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num3" name="num3" value="${lottonums.num3}">
@@ -90,8 +126,8 @@
     <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num6" name="num6" value="${lottonums.num6}">
     
     <div class="button-container">
-	   <button type="submit">수정</button>
-	   <button type="button" onclick="location.href='delete?no=${lottonums.no}'">삭제</button>
+	   <button type="submit" class="green-button">수정</button>
+	   <button type="button" class="green-button" onclick="location.href='delete?no=${lottonums.no}'">삭제</button>
    </div>
   </form>
   <br>
