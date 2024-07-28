@@ -7,26 +7,120 @@
     <meta charset="UTF-8">
     <title>번호 만들기</title>
     <style type="text/css">
-        table {
-            width: 300px;
-            border-collapse: collapse; 
-            border: 1px solid;
-            
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Roboto', sans-serif;
+            border: 2px solid #275efe;
+            border-radius: 25px;
+            padding: 20px;
+            box-sizing: border-box; 
+            width: 80%; 
+            margin: auto; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: white;
         }
-        
+
+        h3 {
+            color: #333;
+            text-align: center;
+        }
+
+        table {
+            width: auto;
+            border-collapse: separate;
+            border-spacing: 10px;
+            margin: 20px 0;
+        }
+
         th, td {
-            width: 20%; 
-            text-align: left; 
+            text-align: center;
         }
 
         #checkboxForm {
-            margin: 20px 0; 
+            margin: 20px 0;
         }
 
-        .inp {
-            width: 30px; 
-            text-align: center;
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center;
         }
+
+        .checkbox-wrapper input[type="checkbox"] {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #275efe;
+            border-radius: 4px;
+            position: relative;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        .checkbox-wrapper input[type="checkbox"]:checked {
+            background-color: #275efe;
+            border-color: #275efe;
+        }
+
+        .checkbox-wrapper input[type="checkbox"]:checked::before {
+            content: '✔';
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 14px;
+        }
+
+        .checkbox-wrapper label {
+            cursor: pointer;
+        }
+
+        :root {
+            --background: #275efe;
+            --text: #fff;
+            --font-size: 16px;
+            --duration: 0.44s;
+        }
+
+        button {
+            background-color: var(--background);
+            color: var(--text);
+            font-size: var(--font-size);
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: transform var(--duration), box-shadow var(--duration);
+        }
+
+        button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 2px 8px -1px rgba(39, 94, 254, 0.32);
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+        }
+        .inp {
+            width: 30px;
+            text-align: center;
+            background-color: #f0f0f0; 
+            border: 1px solid #ccc;
+            padding: 5px; 
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin: 5px;
+        }
+        img {
+			width: 80%;
+			margin-bottom: 20px;
+		}
+	}
     </style>
     <script>
         function getRandomInt() {
@@ -38,23 +132,27 @@
             const tbody = document.createElement('tbody');
 
             for (let i = 1; i <= 45; i++) {
-                const tr = Math.ceil(i / 5); // 각 행에 5개씩 배치
                 if ((i - 1) % 5 === 0) { // 새로운 행 시작
                     const row = document.createElement('tr');
                     tbody.appendChild(row);
                 }
-                
+
+                const checkboxWrapper = document.createElement('div');
+                checkboxWrapper.className = 'checkbox-wrapper';
+
                 const checkbox = document.createElement('input');
                 checkbox.type = 'checkbox';
                 checkbox.name = 'option';
                 checkbox.value = i;
-				const temp = i.toString() + "번";
+
                 const label = document.createElement('label');
-                label.appendChild(checkbox);
-                label.appendChild(document.createTextNode(temp));
+                label.appendChild(document.createTextNode(i + '번'));
+
+                checkboxWrapper.appendChild(checkbox);
+                checkboxWrapper.appendChild(label);
 
                 const td = document.createElement('td');
-                td.appendChild(label); // 체크박스를 셀에 추가
+                td.appendChild(checkboxWrapper); // 체크박스를 셀에 추가
                 tbody.lastChild.appendChild(td); // 마지막 행에 추가
             }
             table.appendChild(tbody);
@@ -89,10 +187,13 @@
     </script>
 </head>
 <body>
+	<img src="../img/lotto645.jpg" alt="Lotto 6/45">
     <div>
         <h3>최대 6개의 번호를 고르세요</h3>
         <div id="checkboxForm"></div>
-        <button onclick="makeNumList()">번호 생성하기</button>
+        <div class="center">
+            <button onclick="makeNumList()">번호 생성하기</button>
+        </div>
     </div>
      
     <h3>번호 구성</h3>
@@ -108,7 +209,9 @@
     </form>
 
     <br>
-    <button type="button" onclick="location.href='list2024'">2024년 당첨목록 보기</button>
-    <button type="button" onclick="location.href='list'">내 목록 보기</button>
+    <div>
+        <button type="button" onclick="location.href='list2024'">2024년 당첨목록 보기</button>
+        <button type="button" onclick="location.href='list'">내 목록 보기</button>
+    </div>
 </body>
 </html>
