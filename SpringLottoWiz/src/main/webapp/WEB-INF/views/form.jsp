@@ -103,7 +103,7 @@
         }
 
         button {
-            background-color: var(--background); /* 기본 파란색 */
+            background-color: var(--background); 
             color: var(--text);
             font-size: var(--font-size);
             border: none;
@@ -200,6 +200,19 @@
             });
         }
 
+        function validateAndSubmit() {
+            const numbers = [];
+            for (let i = 1; i <= 6; i++) {
+                const num = document.getElementById('num' + i).value;
+                if (numbers.includes(num)) {
+                    alert('각 숫자들은 중복되면 안됩니다.');
+                    return false;
+                }
+                numbers.push(num);
+            }
+            return true;
+        }
+
         window.onload = generateCheckboxes;
     </script>
 </head>
@@ -214,7 +227,7 @@
     </div>
      
     <h3>번호 구성</h3>
-    <form method="post">
+    <form method="post" onsubmit="return validateAndSubmit();">
         <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num1" name="num1" value="">
         <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num2" name="num2" value="">
         <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num3" name="num3" value="">

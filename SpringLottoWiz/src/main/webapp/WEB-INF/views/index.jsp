@@ -9,21 +9,20 @@
 	body {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
 		align-items: center;
 		font-family: 'Roboto', sans-serif;
 		margin: 0;
 		padding: 0;
-		height: 100vh;
+		min-height: 100vh;
 		background-color: #f9f9f9;
+		box-sizing: border-box;
 		border: 2px solid #275efe;
         border-radius: 25px;
         padding: 20px;
-        box-sizing: border-box; 
         width: 80%; 
         margin: auto;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background-color: white; 
+        background-color: white;
 	}
 
 	:root {
@@ -43,7 +42,7 @@
 		cursor: pointer;
 		border-radius: 25px;
 		transition: transform var(--duration), box-shadow var(--duration);
-		width: 200px; 
+		width: 200px;
 	}
 
 	button:hover {
@@ -55,12 +54,23 @@
 		width: 80%;
 		margin-bottom: 20px;
 	}
+
+	.button-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		flex: 1;
+		width: 100%;
+	}
 </style>
 </head>
 <body>
 	<img src="../img/lotto645.jpg" alt="Lotto 6/45">
-	<button type="button" onclick="location.href='list2024'">2024년 당첨목록 보기</button>
-	<button type="button" onclick="location.href='list'">내 목록 보기</button>
-	<button type="button" onclick="location.href='form'">로또번호 만들기</button>
+	<div class="button-container">
+		<button type="button" onclick="location.href='list2024'">2024년 당첨목록 보기</button>
+		<button type="button" onclick="location.href='list'">내 목록 보기</button>
+		<button type="button" onclick="location.href='form'">로또번호 만들기</button>
+	</div>
 </body>
 </html>
