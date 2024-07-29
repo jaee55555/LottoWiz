@@ -2,7 +2,7 @@
 
 # data only 2024
 # start drwNo = 1101
-# recent drwNo = 1129
+# recent drwNo = 1130
 # basic lotto api url = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo="
 
 from urllib.request import urlopen
