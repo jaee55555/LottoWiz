@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <title>번호 만들기</title>
     <style type="text/css">
-        body {
+        body #bd {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -22,6 +22,12 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             background-color: white;
         }
+        footer {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			font-family: 'Roboto', sans-serif;
+		}
 
         h3 {
             color: #333;
@@ -60,7 +66,7 @@
         }
 
         .checkbox-wrapper input[type="checkbox"]:checked {
-            background-color: #275efe;
+            background-color: #28a745;
             border-color: #28a745;
         }
 
@@ -217,31 +223,36 @@
     </script>
 </head>
 <body>
-	<img src="../img/lotto645.jpg" alt="Lotto 6/45">
-    <div>
-        <h3>최대 6개의 번호를 고르세요</h3>
-        <div id="checkboxForm"></div>
-        <div class="center">
-            <button class="green-button" onclick="makeNumList()">번호 생성하기</button>
-        </div>
+	<div id="bd">
+		<img src="../img/lotto645.jpg" alt="Lotto 6/45">
+	    <div>
+	        <h3>최대 6개의 번호를 고르세요</h3>
+	        <div id="checkboxForm"></div>
+	        <div class="center">
+	            <button class="green-button" onclick="makeNumList()">번호 생성하기</button>
+	        </div>
+	    </div>
+	     
+	    <h3>번호 구성</h3>
+	    <form method="post" onsubmit="return validateAndSubmit();">
+	        <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num1" name="num1" value="">
+	        <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num2" name="num2" value="">
+	        <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num3" name="num3" value="">
+	        <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num4" name="num4" value="">
+	        <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num5" name="num5" value="">
+	        <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num6" name="num6" value="">
+	        
+	        <button class="green-button">저장하기</button>
+	    </form>
+	
+	    <br>
+	    <div>
+	        <button type="button" onclick="location.href='list2024'">2024년 당첨목록 보기</button>
+	        <button type="button" onclick="location.href='list'">내 목록 보기</button>
+	    </div>
     </div>
-     
-    <h3>번호 구성</h3>
-    <form method="post" onsubmit="return validateAndSubmit();">
-        <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num1" name="num1" value="">
-        <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num2" name="num2" value="">
-        <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num3" name="num3" value="">
-        <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num4" name="num4" value="">
-        <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num5" name="num5" value="">
-        <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num6" name="num6" value="">
-        
-        <button class="green-button">저장하기</button>
-    </form>
-
-    <br>
-    <div>
-        <button type="button" onclick="location.href='list2024'">2024년 당첨목록 보기</button>
-        <button type="button" onclick="location.href='list'">내 목록 보기</button>
-    </div>
+    <footer>
+    	<p>Copyright © 2024 jaee55555</p>
+	</footer>
 </body>
 </html>

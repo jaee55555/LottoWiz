@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>초기화면</title>
 <style type="text/css">
-	body {
+	body #bd {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -24,7 +24,14 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         background-color: white;
 	}
-
+	
+	footer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		font-family: 'Roboto', sans-serif;
+	}
+	
 	:root {
 		--background: #275efe;
 		--text: #fff;
@@ -66,11 +73,16 @@
 </style>
 </head>
 <body>
-	<img src="../img/lotto645.jpg" alt="Lotto 6/45">
-	<div class="button-container">
-		<button type="button" onclick="location.href='list2024'">2024년 당첨목록 보기</button>
-		<button type="button" onclick="location.href='list'">내 목록 보기</button>
-		<button type="button" onclick="location.href='form'">로또번호 만들기</button>
+	<div id="bd">
+		<img src="../img/lotto645.jpg" alt="Lotto 6/45">
+		<div class="button-container">
+			<button type="button" onclick="location.href='list2024'">2024년 당첨목록 보기</button>
+			<button type="button" onclick="location.href='list'">내 목록 보기</button>
+			<button type="button" onclick="location.href='form'">로또번호 만들기</button>
+		</div>
 	</div>
+	<footer>
+    	<p>Copyright © 2024 jaee55555</p>
+	</footer>
 </body>
 </html>

@@ -31,7 +31,7 @@
    </script>
    
    <style type="text/css">
-	   body{
+	   body #bd {
 			display: flex;
 		    flex-direction: column;
 		    justify-content: center;
@@ -45,6 +45,13 @@
 	        margin: auto;
 	        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	        background-color: white;
+		}
+		
+		footer {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			font-family: 'Roboto', sans-serif;
 		}
 		.inp {
             width: 30px;
@@ -113,26 +120,29 @@
 	</style>
 </head>
 <body>
-  <img src="../img/lotto645.jpg" alt="Lotto 6/45" width=80%>
-  <h3>LottoNums정보수정</h3>
-  <hr>
-  <form method="post" onsubmit="return validateAndSubmit();">
-    <input type="hidden" name="no" value="${lottonums.no }">
-    <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num1" name="num1" value="${lottonums.num1}">
-    <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num2" name="num2" value="${lottonums.num2}">
-    <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num3" name="num3" value="${lottonums.num3}">
-    <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num4" name="num4" value="${lottonums.num4}">
-    <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num5" name="num5" value="${lottonums.num5}">
-    <input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num6" name="num6" value="${lottonums.num6}">
-    
-    <div class="button-container">
-	   <button type="submit" class="green-button">수정</button>
-	   <button type="button" class="green-button" onclick="location.href='delete?no=${lottonums.no}'">삭제</button>
-   </div>
-  </form>
-  <br>
-  <button type="button" onclick="location.href='list'">
-  목록보기
-  </button>
+	<div id="bd">
+		<img src="../img/lotto645.jpg" alt="Lotto 6/45" width=80%>
+		<h3>숫자 조합 수정</h3>
+		<hr>
+		<form method="post" onsubmit="return validateAndSubmit();">
+			<input type="hidden" name="no" value="${lottonums.no }">
+			<input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num1" name="num1" value="${lottonums.num1}">
+			<input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num2" name="num2" value="${lottonums.num2}">
+			<input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num3" name="num3" value="${lottonums.num3}">
+			<input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num4" name="num4" value="${lottonums.num4}">
+			<input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num5" name="num5" value="${lottonums.num5}">
+			<input type="text" pattern="[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]" class="inp" id="num6" name="num6" value="${lottonums.num6}">
+			    
+			<div class="button-container">
+				<button type="submit" class="green-button">수정</button>
+				<button type="button" class="green-button" onclick="location.href='delete?no=${lottonums.no}'">삭제</button>
+			</div>
+		</form>
+		<br>
+		<button type="button" onclick="location.href='list'">목록보기</button>
+	</div>
+	<footer>
+    	<p>Copyright © 2024 jaee55555</p>
+	</footer>
 </body>
 </html>
