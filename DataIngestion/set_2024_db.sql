@@ -23,4 +23,4 @@ select drwNo as "회차", drwNoDate as "추첨날짜", drwtNo1 as "1번",drwtNo2
 from lotto_results_2024;
 DELETE FROM `lotto_results_2024`;
 rollback;
--- describe lotto_results_2024;
+describe lotto_results_2024;

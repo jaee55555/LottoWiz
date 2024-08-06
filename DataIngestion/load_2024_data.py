@@ -8,7 +8,6 @@
 from urllib.request import urlopen
 from datetime import datetime
 import json
-import sys
 import pymysql
 
 
